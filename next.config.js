@@ -4,3 +4,5 @@ module.exports = {
     loader: "custom",
   },
 };
+
+import('@opennextjs/cloudflare').then(m => m.initOpenNextCloudflareForDev());
