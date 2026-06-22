@@ -78,10 +78,6 @@ function HeroPost({
 
 export default async function Page() {
   const { isEnabled } = await draftMode();
-  console.log({
-    hasSpace: !!process.env.CONTENTFUL_SPACE_ID,
-    hasToken: !!process.env.CONTENTFUL_ACCESS_TOKEN
-  });
   const allPosts = await getAllPosts(isEnabled);
   const heroPost = allPosts[0];
   const morePosts = allPosts.slice(1);
