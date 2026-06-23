@@ -30,7 +30,7 @@ const POST_GRAPHQL_FIELDS = `
 
 async function fetchGraphQL(query: string, preview = false): Promise<any> {
   
-  console.log(JSON.stringify({
+  console.log("apis " + JSON.stringify({
     hasSpace: !!process.env.CONTENTFUL_SPACE_ID,
     hasToken: !!process.env.CONTENTFUL_ACCESS_TOKEN
   }));
@@ -90,7 +90,7 @@ export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
     }`,
     isDraftMode,
   );
-  console.log("all posts " + JSON.stringify(entries) );
+  console.log("getAllPosts " + JSON.stringify(entries) );
   return extractPostEntries(entries);
 }
 
