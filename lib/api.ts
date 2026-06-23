@@ -59,7 +59,7 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
   );
 
   const data = await response.json();
-  console.log("fetchGraphQL status", response.status);
+  console.log("fetchGraphQL status ", response.status);
   console.log(JSON.stringify(data, null, 2));
 
   return data;
