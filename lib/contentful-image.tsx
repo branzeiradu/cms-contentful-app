@@ -4,6 +4,7 @@ import Image from "next/image";
 
 interface ContentfulImageProps {
   src: string;
+  className? : string;
   width?: number;
   quality?: number;
   [key: string]: any; // For other props that might be passed
@@ -14,5 +15,5 @@ const contentfulLoader = ({ src, width, quality }: ContentfulImageProps) => {
 };
 
 export default function ContentfulImage(props: ContentfulImageProps) {
-  return <Image alt={props.alt} loader={contentfulLoader} {...props} />;
+  return <Image alt={props.alt} loader={contentfulLoader} className={props.className} {...props} />;
 }
