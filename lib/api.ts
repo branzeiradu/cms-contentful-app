@@ -58,7 +58,7 @@ function extractPost(fetchResponse: any): any {
 }
 
 function extractPostEntries(fetchResponse: any): any[] {
-  console.log(fetchResponse);
+  console.log(JSON.stringify(fetchResponse));
   return fetchResponse?.data?.postCollection?.items;
 }
 
@@ -90,7 +90,7 @@ export async function getAllPosts(isDraftMode: boolean): Promise<any[]> {
     }`,
     isDraftMode,
   );
-  console.log("all posts " + entries);
+  console.log("all posts " + JSON.stringify(entries) );
   return extractPostEntries(entries);
 }
 
