@@ -4,8 +4,13 @@ import { revalidateTag } from "next/cache";
 export async function POST(request: NextRequest) {
   const requestHeaders = new Headers(request.headers);
   const secret = requestHeaders.get("x-vercel-reval-key");
-
-  if (secret !== process.env.CONTENTFUL_REVALIDATE_SECRET) {
+  console.log(`request header x-vercel-reval-key: ${secret}`);
+  
+  const revalidateToken = process.env.CONTENTFUL_REVALIDATE_SECRET;
+  console.log(`process.env.CONTENTFUL_REVALIDATE_SECRET: ${revalidateToken}`);
+  
+  if (secret !== revalidateToken) {
+    console.log("Contentful revalidate secret is invalid is invalid");
     return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
   }
 
