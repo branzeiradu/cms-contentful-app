@@ -9,7 +9,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Invalid secret" }, { status: 401 });
   }
 
-  revalidateTag("posts");
+  console.log("REVALIDATION ENDPOINT CALLED");
+  //revalidateTag("posts");
 
   return NextResponse.json({ revalidated: true, now: Date.now() });
 }
