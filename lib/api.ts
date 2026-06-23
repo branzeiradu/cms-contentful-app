@@ -38,11 +38,14 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
 
   }));
 
-  console.log("fetchGraphQL preview " + preview);
+  console.log("fetchGraphQL uses preview token: " + preview);
 
-  console.log("fetchGraphQL url " +
+  console.log("fetchGraphQL contentful space url " +
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`
   );
+
+  console.log("fetchGraphQL query: " + query);
+
 
   const response = await fetch(
     `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
@@ -55,8 +58,8 @@ async function fetchGraphQL(query: string, preview = false): Promise<any> {
           : process.env.CONTENTFUL_ACCESS_TOKEN
           }`,
       },
-      body: JSON.stringify({ query }),
-      next: { tags: ["posts"] },
+      body: JSON.stringify({ query })//,
+      //next: { tags: ["posts"] },
     },
   );
 
