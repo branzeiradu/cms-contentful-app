@@ -10,6 +10,7 @@ import { Markdown } from "@/lib/markdown";
 import { getAllPosts, getPostAndMorePosts } from "@/lib/api";
 
 export async function generateStaticParams() {
+  console.log("generateStaticParams ")
   const allPosts = await getAllPosts(false);
 
   return allPosts.map((post) => ({
